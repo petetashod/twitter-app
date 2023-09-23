@@ -1,14 +1,28 @@
 import { useState } from 'react'
 import './App.css'
 import NavBar from'./Front-End/NavBar'
+import Search from './Front-End/Search'
+import FavTweets from './Front-End/FavTweets';
 
 
 function App() {
- 
+ let component;
 
+  switch (window.location.pathname) {
+    
+    case"/Home":
+    component = <App />
+      break
+    case "/Search":
+    component = <Search />
+      break
+    case "/FavTweets":
+    component = <FavTweets />
+      break
+  }
   return (
     <>
-    
+    {component}
       <NavBar />
      
       <h1> Twitter App</h1>

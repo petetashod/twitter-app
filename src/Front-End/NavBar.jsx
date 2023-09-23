@@ -2,7 +2,8 @@
 import React from 'react';
 import App from '/src/App.jsx';
 import nav from "./nav.css";
-import Search from "/Users/tashodpeterson/Desktop/twitter-app/src/Front-End/Search.jsx";
+import Search from "./Search.jsx";
+import FavTweets from "./FavTweets.jsx";
 
 function NavBar() {
   // twitter as a navigation button
@@ -23,7 +24,7 @@ function NavBar() {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link navbar-brand" href="#">
+            <a className="nav-link navbar-brand" href="/Search">
               Search
             </a>
           </li>
