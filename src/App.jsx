@@ -3,6 +3,7 @@ import './App.css'
 import NavBar from'./Front-End/NavBar'
 import Search from './Front-End/Search'
 import FavTweets from './Front-End/FavTweets';
+import Home from './Front-End/Home';
 
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
   switch (window.location.pathname) {
     
     case"/Home":
-    component = <App />
+    component = <Home/>
       break
     case "/Search":
     component = <Search />
@@ -22,17 +23,10 @@ function App() {
   }
   return (
     <>
-    {component}
+    
       <NavBar />
-     
-      <h1> Twitter App</h1>
-
-      <div>
-        <p className='appDescription lead'>
-          An app that allows you to see what your favorite people are talking about.<br/>
-          In addition you can like or search for your favorite celebrities.
-        </p>
-      </div>
+      {component}
+      
      
     </>
   )
