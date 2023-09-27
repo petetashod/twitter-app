@@ -2,18 +2,18 @@
 import React from "react";
 import App from "/src/App.jsx";
 import nav from "./nav.css";
-import Search from "./Search.jsx";
-import FavTweets from "./FavTweets.jsx";
+
+import {Link} from "react-router-dom"
 
 function NavBar() {
   // twitter as a navigation button
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+        <div className="container-fluid bg-black">
+          <Link className="navbar-brand text-white" to="/Home">
             Twitter
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -28,19 +28,19 @@ function NavBar() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/Home">
+                <Link className="nav-link active text-white" aria-current="page" to="/Home">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/Search">
+                <Link className="nav-link text-white" to="/Search">
                   Search
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/FavTweets">
+                <Link className="nav-link text-white" to="/FavTweets">
                   FavTweets
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

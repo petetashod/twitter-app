@@ -4,28 +4,22 @@ import NavBar from'./Front-End/NavBar'
 import Search from './Front-End/Search'
 import FavTweets from './Front-End/FavTweets';
 import Home from './Front-End/Home';
-
+import {Route, Routes} from 'react-router-dom'
 
 function App() {
- let component;
-
-  switch (window.location.pathname) {
-    
-    case"/Home":
-    component = <Home/>
-      break
-    case "/Search":
-    component = <Search />
-      break
-    case "/FavTweets":
-    component = <FavTweets />
-      break
-  }
+ 
+  
   return (
     <>
     
       <NavBar />
-      {component}
+    
+      <Routes>
+        <Route path='/Home' element={ <Home />}/>
+        <Route path='/Search' element={ <Search />}/>
+        <Route path='/FavTweets' element={ <FavTweets />}/>
+
+      </Routes>
       
      
     </>

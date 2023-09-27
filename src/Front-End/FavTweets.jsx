@@ -1,14 +1,15 @@
-import NavBar from "./NavBar"
+/** @format */
+
+import NavBar from "./NavBar";
 
 
-function FavTweets(){
-
-
-    return{
-
-
-    }
-}
-
-
-export default FavTweets;
+function FavTweets() {
+    return (
+      <>
+        <h1>Twitter</h1>
+       
+      </>
+    );
+  }
+  
+  export default FavTweets;
