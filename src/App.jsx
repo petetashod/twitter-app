@@ -18,7 +18,6 @@ function App() {
         <Route path='/Home' element={ <Home />}/>
         <Route path='/Search' element={ <Search />}/>
         <Route path='/FavTweets' element={ <FavTweets />}/>
-
       </Routes>
       
      
