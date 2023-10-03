@@ -1,7 +1,7 @@
 /** @format */
 import React from "react";
 import App from "/src/App.jsx";
-import nav from "./nav.css";
+
 
 import {Link} from "react-router-dom"
 

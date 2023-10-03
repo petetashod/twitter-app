@@ -1,5 +1,5 @@
 /** @format */
-import {useState,useEffect} from 'React'
+import {useState,useEffect} from 'react'
 import NavBar from "./NavBar";
 import "/src/App.css";
 
