@@ -2,8 +2,7 @@
 import React from "react";
 import App from "/src/App.jsx";
 
-
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
 function NavBar() {
   // twitter as a navigation button
@@ -28,7 +27,11 @@ function NavBar() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Link className="nav-link active text-white" aria-current="page" to="/Home">
+                <Link
+                  className="nav-link active text-white"
+                  aria-current="page"
+                  to="/Home"
+                >
                   Home
                 </Link>
               </li>
