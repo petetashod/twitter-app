@@ -1,8 +1,8 @@
 /** @format */
-import {useState,useEffect} from 'react'
+import { useState, useEffect } from "react";
 import NavBar from "./NavBar";
 import "/src/App.css";
- import axios from "axios";
+import axios from "axios";
 
 function FavTweets() {
   // let twitterData = {
@@ -36,28 +36,26 @@ function FavTweets() {
   //   url: "https://swapi.dev/api/people/1/",
   // };
 
-  const [tweetsDisplay, setTweetsDisplay] = useState('');
-  
-  const  [url,setUrl] = useState('http://localhost:3000/api/tweets')
+  const [tweetsDisplay, setTweetsDisplay] = useState("");
+
+  const [url, setUrl] = useState("http://localhost:3000/api/tweets");
   useEffect(() => {
-    let favTweetInfo =  () =>  {
+    let favTweetInfo = () => {
       let response = axios.get(url);
       let tweetInformation = response.data;
-      setTweetsDisplay(tweetInformation) 
-
+      setTweetsDisplay(tweetInformation);
     };
 
-    favTweetInfo()
+    favTweetInfo();
   }, [url]);
 
   const button = (e) => {
-     e.preventDefault();
+    e.preventDefault();
     //  let properties = Object.keys(twitterData)
-     setTweetsDisplay(tweetsDisplay); 
-    
+    setTweetsDisplay(tweetsDisplay);
   };
-  
-  console.log(tweetsDisplay)
+
+  console.log(tweetsDisplay);
   return (
     <>
       <div>
@@ -68,15 +66,18 @@ function FavTweets() {
           Lebron James, Drake, Ohio State Football, Marvel Studios, GameStop
         </p>
         <form action="" method="GET" className=" favForm">
-          <button type="submit" className="btn btn-dark favButton" onClick={button}>
+          <button
+            type="submit"
+            className="btn btn-dark favButton"
+            onClick={button}
+          >
             random tweets
           </button>
         </form>
       </div>
-     
+
       <ul>
-       
-          {/* {tweetsDisplay.map((person, index) =>(      
+        {/* {tweetsDisplay.map((person, index) =>(      
             <li key={index}>
                  {person +  ':'  +  twitterData[person]} 
             </li>
