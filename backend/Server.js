@@ -3,7 +3,9 @@
 const axios = require("axios");
 const express = require("express");
 const path = require("path");
+require("dotenv").config();
 const token = process.env.TOKEN;
+console.log("TOKEN: ", token);
 const app = express();
 const favTweetUrl =
   "https://api.twitter.com/2/tweets/search/recent?query=lebronjames";
@@ -19,18 +21,18 @@ app.get("/api/test", (req, res) => {
 });
 
 app.get("/api/tweets", (req, res) => {
-  //   const config = {
-  //     headers: { Authorization: `Bearer ${token}` },
-  //   };
-  //   axios
-  //     .get(favTweetUrl, config)
-  //     .then((response) => {
-  //       console.log(response);
-  //       res.json(response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //       res.status(505).json({ error: "Internal Server Error" });
-  //     });
+  const config = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
+  axios
+    .get(favTweetUrl, config)
+    .then((response) => {
+      console.log(response.data);
+      res.send(response.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 });
+// const port = process.env.PORT || 3000 will be needed when deploying app
 app.listen(3000);

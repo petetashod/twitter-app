@@ -45,7 +45,7 @@ function FavTweets() {
       let tweetInformation = response.data;
       setTweetsDisplay(tweetInformation);
     };
-
+    console.log(tweetsDisplay);
     favTweetInfo();
   }, [url]);
 
@@ -77,12 +77,9 @@ function FavTweets() {
       </div>
 
       <ul>
-        {/* {tweetsDisplay.map((person, index) =>(      
-            <li key={index}>
-                 {person +  ':'  +  twitterData[person]} 
-            </li>
-
-        ))} */}
+        {tweetsDisplay.map((person, index) => (
+          <li key={index}>{person.data}</li>
+        ))}
       </ul>
     </>
   );
