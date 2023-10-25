@@ -5,7 +5,6 @@ const express = require("express");
 const path = require("path");
 require("dotenv").config();
 const token = process.env.TOKEN;
-console.log("TOKEN: ", token);
 const app = express();
 const favTweetUrl =
   "https://api.twitter.com/2/tweets/search/recent?query=lebronjames";
@@ -27,7 +26,6 @@ app.get("/api/tweets", (req, res) => {
   axios
     .get(favTweetUrl, config)
     .then((response) => {
-      console.log(response.data);
       res.send(response.data);
     })
     .catch((error) => {

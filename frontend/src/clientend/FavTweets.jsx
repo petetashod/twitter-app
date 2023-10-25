@@ -40,22 +40,23 @@ function FavTweets() {
 
   const [url, setUrl] = useState("http://localhost:3000/api/tweets");
   useEffect(() => {
-    let favTweetInfo = () => {
+    let favTweetInfo =  () => {
       let response = axios.get(url);
       let tweetInformation = response.data;
       setTweetsDisplay(tweetInformation);
     };
-    console.log(tweetsDisplay);
-    favTweetInfo();
+    // console.log(tweetsDisplay);
+     favTweetInfo()
   }, [url]);
 
   const button = (e) => {
     e.preventDefault();
     //  let properties = Object.keys(twitterData)
-    setTweetsDisplay(tweetsDisplay);
+    
   };
 
-  console.log(tweetsDisplay);
+  // console.log(tweetsDisplay);
+ 
   return (
     <>
       <div>
@@ -77,9 +78,9 @@ function FavTweets() {
       </div>
 
       <ul>
-        {tweetsDisplay.map((person, index) => (
+        {/* {tweetsDisplay.map((person, index) => (
           <li key={index}>{person.data}</li>
-        ))}
+        ))} */}
       </ul>
     </>
   );
