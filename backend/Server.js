@@ -14,7 +14,7 @@ app.use(
   express.static(path.join(__dirname, "../frontend/dist/assets"))
 );
 
-app.get("/api/test", (req, res) => {
+app.get("/", (req, res) => {
   //   res.send("working!");
   res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
 });

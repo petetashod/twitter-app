@@ -36,27 +36,24 @@ function FavTweets() {
   //   url: "https://swapi.dev/api/people/1/",
   // };
 
-  const [tweetsDisplay, setTweetsDisplay] = useState("");
+  const [tweetsDisplay, setTweetsDisplay] = useState([]);
 
   const [url, setUrl] = useState("http://localhost:3000/api/tweets");
   useEffect(() => {
-    let favTweetInfo =  () => {
-      let response = axios.get(url);
-      let tweetInformation = response.data;
+    let favTweetInfo = async () => {
+      let response = await axios.get(url);
+      let tweetInformation = response.data.data;
+      console.log(tweetInformation);
       setTweetsDisplay(tweetInformation);
     };
-    // console.log(tweetsDisplay);
-     favTweetInfo()
+    favTweetInfo();
   }, [url]);
 
   const button = (e) => {
     e.preventDefault();
-    //  let properties = Object.keys(twitterData)
-    
   };
+  const tweetsDisplayArray = [...tweetsDisplay];
 
-  // console.log(tweetsDisplay);
- 
   return (
     <>
       <div>
@@ -76,11 +73,10 @@ function FavTweets() {
           </button>
         </form>
       </div>
-
       <ul>
-        {/* {tweetsDisplay.map((person, index) => (
-          <li key={index}>{person.data}</li>
-        ))} */}
+        {tweetsDisplayArray.map((person, index) => (
+          <li key={index}>{person[0]}</li>
+        ))}
       </ul>
     </>
   );
