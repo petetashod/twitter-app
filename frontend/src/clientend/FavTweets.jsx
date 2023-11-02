@@ -52,7 +52,7 @@ function FavTweets() {
   const button = (e) => {
     e.preventDefault();
   };
-  const tweetsDisplayArray = [...tweetsDisplay];
+  // const tweetsDisplayArray = [...tweetsDisplay];
 
   return (
     <>
@@ -73,11 +73,14 @@ function FavTweets() {
           </button>
         </form>
       </div>
-      <ul>
-        {tweetsDisplayArray.map((person, index) => (
-          <li key={index}>{person[0]}</li>
+      <div>
+        {tweetsDisplay.map((tweet, index) => (
+          <ul key={index}>
+            <li>{tweet[0]}</li>
+            <li>{tweet[1]}</li>
+          </ul>
         ))}
-      </ul>
+      </div>
     </>
   );
 }
