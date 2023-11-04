@@ -5,20 +5,17 @@ import "/src/App.css";
 import axios from "axios";
 
 function FavTweets() {
-
   const [tweetsDisplay, setTweetsDisplay] = useState([]);
-  
-  const url = "http://localhost:3000/api/tweets"
-  
+
+  const url = "http://localhost:3000/api/tweets";
 
   const button = (e) => {
     e.preventDefault();
     let favTweetInfo = async () => {
       let response = await axios.get(url);
       let tweetInformation = response.data.data;
-      // console.log(tweetInformation);
+       console.log(tweetInformation);
       setTweetsDisplay(tweetInformation);
-      
     };
     favTweetInfo();
   };
@@ -43,7 +40,7 @@ function FavTweets() {
           </button>
         </form>
       </div>
-      <div className="card-container">
+      <div className="card-container cardDiv">
         {tweetsDisplay.map((tweet, index) => (
           <ul className="card" key={index}>
             <h5 className="card-title">{tweet.id}</h5>
