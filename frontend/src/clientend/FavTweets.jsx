@@ -1,8 +1,10 @@
 /** @format */
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import NavBar from "./NavBar";
 import "/src/App.css";
 import axios from "axios";
+import TweetCard from "./TweetCard.jsx";
+
 
 function FavTweets() {
   const [tweetsDisplay, setTweetsDisplay] = useState([]);
@@ -14,12 +16,13 @@ function FavTweets() {
     let favTweetInfo = async () => {
       let response = await axios.get(url);
       let tweetInformation = response.data.data;
-       console.log(tweetInformation);
+      console.log(tweetInformation);
       setTweetsDisplay(tweetInformation);
     };
     favTweetInfo();
   };
-  // const tweetsDisplayArray = [...tweetsDisplay];
+  
+ 
 
   return (
     <>
@@ -42,10 +45,7 @@ function FavTweets() {
       </div>
       <div className="card-container cardDiv">
         {tweetsDisplay.map((tweet, index) => (
-          <ul className="card" key={index}>
-            <h5 className="card-title">{tweet.id}</h5>
-            <p className="card-text">{tweet.text}</p>
-          </ul>
+          <TweetCard key={index}tweet={tweet} index={index} />
         ))}
       </div>
     </>
