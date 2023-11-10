@@ -4,7 +4,33 @@ import NavBar from "./NavBar";
 import "/src/App.css";
 import axios from "axios";
 import TweetCard from "./TweetCard.jsx";
-
+const favTwitterUsers = [
+  {
+    id: "342601720",
+    name: "Team LeBron 👑",
+    username: "LeBronJames"
+  },
+  {
+    id: "27195114",
+    name: "Drizzy",
+    username: "Drake"
+  },
+  {
+    id: "776968879",
+    name: "Ohio State Buckeyes",
+    username: "Buckeyes"
+  },
+  {
+    id: "750751206427860992",
+    name: "Marvel Studios",
+    username: "MarvelStudios"
+  },
+  {
+    id: "22258315",
+    name: "GameStop",
+    username: "GameStop"
+  },
+];
 
 function FavTweets() {
   const [tweetsDisplay, setTweetsDisplay] = useState([]);
@@ -16,10 +42,14 @@ function FavTweets() {
     let favTweetInfo = async () => {
       let response = await axios.get(url);
       let tweetInformation = response.data.data;
-      console.log(tweetInformation);
+      // console.log(tweetInformation);
       setTweetsDisplay(tweetInformation);
     };
     favTweetInfo();
+
+    // use get request to get tweet information
+
+
   };
   
  
@@ -45,7 +75,7 @@ function FavTweets() {
       </div>
       <div className="card-container cardDiv">
         {tweetsDisplay.map((tweet, index) => (
-          <TweetCard key={index}tweet={tweet} index={index} />
+          <TweetCard key={index}tweet={tweet.id} tweetText={tweet.text} />
         ))}
       </div>
     </>

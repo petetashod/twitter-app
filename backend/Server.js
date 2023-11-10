@@ -6,34 +6,9 @@ const path = require("path");
 require("dotenv").config();
 const token = process.env.TOKEN;
 const app = express();
-// const favTwitterUsers = [
-//   {
-//     name: "Lebron James",
-//     handle: "@lebronjames",
-//     id:
-//   },
-//   {
-//     name: "Drizzy",
-//     handle: "@Drake",
-//     id:
-//   },
-//   {
-//     name: "Ohio State Buckeyes",
-//     handle: "@Buckeyes",
-//     id:
-//   },
-//   {
-//     name: "Marvel Studios",
-//     handle: "@MarvelStudios",
-//     id:
-//   },
-//   {
-//     name: "GameStop",
-//     handle: "@GameStop",
-//     id:
-//   },
-// ];
 
+// figure out how to pull information from the query string using 
+//const searchParams = new URLSearchParams(window.location.search);
 const favTweetUrl =
   "https://api.twitter.com/2/tweets/search/recent?query=lebronjames";
 
