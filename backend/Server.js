@@ -6,9 +6,10 @@ const path = require("path");
 require("dotenv").config();
 const token = process.env.TOKEN;
 const app = express();
+// const id = re.param;
 
 // figure out how to pull information from the query string using pram
-const favTweetUrl = `https://api.twitter.com/2/users/${id}/tweets`;
+const favTweetUrl = `https://api.twitter.com/2/users//tweets`;
 
 app.use(
   "/assets",
