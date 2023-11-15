@@ -8,35 +8,36 @@ const favTwitterUsers = [
   {
     id: "342601720",
     name: "Team LeBron 👑",
-    username: "LeBronJames"
+    username: "LeBronJames",
   },
   {
     id: "27195114",
     name: "Drizzy",
-    username: "Drake"
+    username: "Drake",
   },
   {
     id: "776968879",
     name: "Ohio State Buckeyes",
-    username: "Buckeyes"
+    username: "Buckeyes",
   },
   {
     id: "750751206427860992",
     name: "Marvel Studios",
-    username: "MarvelStudios"
+    username: "MarvelStudios",
   },
   {
     id: "22258315",
     name: "GameStop",
-    username: "GameStop"
+    username: "GameStop",
   },
 ];
-
+// pass the user id into the https request for the back end
 function FavTweets() {
   const [tweetsDisplay, setTweetsDisplay] = useState([]);
 
   const url = "http://localhost:3000/api/tweets";
-
+  // it should look something like this http://localhost:300/api/tweets?user_id={id}
+  // use params to grab the information from this https and pass the id to the endpoint
   const button = (e) => {
     e.preventDefault();
     let favTweetInfo = async () => {
@@ -48,11 +49,7 @@ function FavTweets() {
     favTweetInfo();
 
     // use get request to get tweet information
-
-
   };
-  
- 
 
   return (
     <>
@@ -75,7 +72,7 @@ function FavTweets() {
       </div>
       <div className="card-container cardDiv">
         {tweetsDisplay.map((tweet, index) => (
-          <TweetCard key={index}tweet={tweet.id} tweetText={tweet.text} />
+          <TweetCard key={index} tweet={tweet.id} tweetText={tweet.text} />
         ))}
       </div>
     </>

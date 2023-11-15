@@ -7,10 +7,8 @@ require("dotenv").config();
 const token = process.env.TOKEN;
 const app = express();
 
-// figure out how to pull information from the query string using 
-//const searchParams = new URLSearchParams(window.location.search);
-const favTweetUrl =
-  "https://api.twitter.com/2/tweets/search/recent?query=lebronjames";
+// figure out how to pull information from the query string using pram
+const favTweetUrl = `https://api.twitter.com/2/users/${id}/tweets`;
 
 app.use(
   "/assets",
