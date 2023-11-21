@@ -4,7 +4,7 @@ import NavBar from "./NavBar";
 import "/src/App.css";
 import axios from "axios";
 import TweetCard from "./TweetCard.jsx";
-import { match } from "assert";
+
 const favTwitterUsers = [
   {
     id: "342601720",
@@ -35,31 +35,39 @@ const favTwitterUsers = [
 // pass the user id into the https request for the back end
 
 function FavTweets() {
-  const [tweetsDisplay, setTweetsDisplay] = useState([]);
-  const [id, setId] = useState("");
-  const url = `http://localhost:3000/api/tweets?user_id=${id}`;
+  // const [tweetsDisplay, setTweetsDisplay] = useState([]);
+  const [id, setId] = useState([]);
+  // favTwitterUsers.forEach(() => {
+  //   setId(Math.random(favTwitterUsers.id));
+  // });
+  // const url = `http://localhost:3000/api/tweets?user_id=${id}`;
   // it should look something like this http://localhost:300/api/tweets?user_id={id}
   // use params to grab the information from this https and pass the id to the endpoint
   // for (let index = 0; index < favTwitterUsers.id.Math.random(); index++) {
   //   console.log();
   // }
 
-  favTwitterUsers.forEach(() => {
-    setId(Math.random(Math.floor(favTwitterUsers.id))); //
-  });
+  // favTwitterUsers.forEach(() => {
+  //   setId(Math.random(Math.floor(favTwitterUsers.id))); //
+  // });
   const button = (e) => {
+    const index = Math.floor(Math.random() * favTwitterUsers.length);
+    console.log(index);
+    console.log(favTwitterUsers[index].id);
+    const id = favTwitterUsers[index].id;
+    const url = `http://localhost:3000/api/tweets?user_id=${id}`;
     e.preventDefault();
     let favTweetInfo = async () => {
       let response = await axios.get(url);
       let tweetInformation = response.data.data;
       // console.log(tweetInformation);
-      setTweetsDisplay(tweetInformation);
+      setId(tweetInformation);
     };
     favTweetInfo();
 
     // use get request to get tweet information
   };
-
+  const idArray = [id];
   return (
     <>
       <div>
@@ -80,7 +88,7 @@ function FavTweets() {
         </form>
       </div>
       <div className="card-container cardDiv">
-        {tweetsDisplay.map((tweet, index) => (
+        {idArray.map((tweet, index) => (
           <TweetCard key={index} tweet={tweet.id} tweetText={tweet.text} />
         ))}
       </div>

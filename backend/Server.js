@@ -6,10 +6,9 @@ const path = require("path");
 require("dotenv").config();
 const token = process.env.TOKEN;
 const app = express();
-// const id = re.param;
-
+const id = "";
 // figure out how to pull information from the query string using pram
-const favTweetUrl = `https://api.twitter.com/2/users//tweets`;
+const favTweetUrl = `https://api.twitter.com/2/users/${id}/tweets`;
 
 app.use(
   "/assets",
@@ -21,14 +20,14 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
 });
 
-app.get("/api/tweets", (req, res) => {
+app.get(`/api/tweets?users_id=${id}`, (req, res) => {
   const config = {
     headers: { Authorization: `Bearer ${token}` },
   };
   axios
     .get(favTweetUrl, config)
     .then((response) => {
-      res.send(response.data);
+      res.send(req.query.id);
     })
     .catch((error) => {
       console.log(error);
