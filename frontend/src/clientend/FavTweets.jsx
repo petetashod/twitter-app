@@ -35,21 +35,8 @@ const favTwitterUsers = [
 // pass the user id into the https request for the back end
 
 function FavTweets() {
-  // const [tweetsDisplay, setTweetsDisplay] = useState([]);
   const [id, setId] = useState([]);
-  // favTwitterUsers.forEach(() => {
-  //   setId(Math.random(favTwitterUsers.id));
-  // });
-  // const url = `http://localhost:3000/api/tweets?user_id=${id}`;
-  // it should look something like this http://localhost:300/api/tweets?user_id={id}
-  // use params to grab the information from this https and pass the id to the endpoint
-  // for (let index = 0; index < favTwitterUsers.id.Math.random(); index++) {
-  //   console.log();
-  // }
 
-  // favTwitterUsers.forEach(() => {
-  //   setId(Math.random(Math.floor(favTwitterUsers.id))); //
-  // });
   const button = (e) => {
     const index = Math.floor(Math.random() * favTwitterUsers.length);
     console.log(index);
