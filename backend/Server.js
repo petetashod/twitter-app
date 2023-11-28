@@ -6,9 +6,9 @@ const path = require("path");
 require("dotenv").config();
 const token = process.env.TOKEN;
 const app = express();
-const id = "";
-// figure out how to pull information from the query string using pram
+const id = require.params;
 const favTweetUrl = `https://api.twitter.com/2/users/${id}/tweets`;
+// figure out how to pull information from the query string using pram
 
 app.use(
   "/assets",
@@ -27,7 +27,7 @@ app.get(`/api/tweets?users_id=${id}`, (req, res) => {
   axios
     .get(favTweetUrl, config)
     .then((response) => {
-      res.send(req.query.id);
+      res.send(id.data);
     })
     .catch((error) => {
       console.log(error);
