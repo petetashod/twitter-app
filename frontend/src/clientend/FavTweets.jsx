@@ -39,15 +39,13 @@ function FavTweets() {
 
   const button = (e) => {
     const index = Math.floor(Math.random() * favTwitterUsers.length);
-    console.log(index);
-    console.log(favTwitterUsers[index].id);
     const id = favTwitterUsers[index].id;
     const url = `http://localhost:3000/api/tweets?user_id=${id}`;
     e.preventDefault();
     let favTweetInfo = async () => {
       let response = await axios.get(url);
       let tweetInformation = response.data.data;
-      // console.log(tweetInformation);
+      //console.log(tweetInformation);
       setId(tweetInformation);
     };
     favTweetInfo();
@@ -55,6 +53,7 @@ function FavTweets() {
     // use get request to get tweet information
   };
   const idArray = [id];
+
   return (
     <>
       <div>
