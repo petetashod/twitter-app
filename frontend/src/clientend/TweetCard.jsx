@@ -4,11 +4,6 @@ import "/src/App.css";
 function TweetCard({ tweet, tweetText, profile_id, user_name }) {
   return (
     <>
-      {/* <ul className="card">
-  <h5 className="card-title">{}</h5>
-  <p className="card-text">{}</p>
-</ul> */}
-
       <div className="row">
         <div className="col-md-4"></div>
         <div className="container">
