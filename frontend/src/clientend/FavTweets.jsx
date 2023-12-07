@@ -77,9 +77,10 @@ function FavTweets() {
         {id.map((tweet, index) => (
           <TweetCard
             key={index}
-            tweet={tweet.id}
+            // tweet={tweet.id}
             tweetText={tweet.text}
-            //author_id={tweet.author_id}
+            profile_id={tweet.profile_image_url}
+            userName={tweet.user_name}
             // figure out how to get the user's name and image from twitter api
           />
         ))}

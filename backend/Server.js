@@ -32,5 +32,20 @@ app.get(`/api/tweets`, (req, res) => {
       console.log(error);
     });
 });
+app.get(`/api/tweets`, (req, res) => {
+  const imageUrl = `https://api.twitter.com/2/users/${req.query.user_id}?user.fields=profile_image_url`;
+  const config = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
+  axios
+    .get(imageUrl, config)
+    .then((response) => {
+      res.send(response.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
 // const port = process.env.PORT || 3000 will be needed when deploying app
 app.listen(3000);
