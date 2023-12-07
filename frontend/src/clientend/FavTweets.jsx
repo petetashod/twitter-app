@@ -52,8 +52,8 @@ function FavTweets() {
 
     // use get request to get tweet information
   };
-  const idArray = [id];
-
+  // const idArray = [id];
+  // console.log(idArray);
   return (
     <>
       <div>
@@ -74,8 +74,14 @@ function FavTweets() {
         </form>
       </div>
       <div className="card-container cardDiv">
-        {idArray.map((tweet, index) => (
-          <TweetCard key={index} tweet={tweet.id} tweetText={tweet.text} />
+        {id.map((tweet, index) => (
+          <TweetCard
+            key={index}
+            tweet={tweet.id}
+            tweetText={tweet.text}
+            //author_id={tweet.author_id}
+            // figure out how to get the user's name and image from twitter api
+          />
         ))}
       </div>
     </>

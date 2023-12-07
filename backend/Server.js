@@ -6,8 +6,6 @@ const path = require("path");
 require("dotenv").config();
 const token = process.env.TOKEN;
 const app = express();
-const id = require.params;
-// figure out how to pull information from the query string using pram
 
 app.use(
   "/assets",
@@ -20,7 +18,7 @@ app.get("/", (req, res) => {
 });
 
 app.get(`/api/tweets`, (req, res) => {
-  const favTweetUrl = `https://api.twitter.com/2/users/${req.query.user_id}/tweets`;
+  const favTweetUrl = `https://api.twitter.com/2/users/${req.query.user_id}/tweets?tweet.fields=public_metrics,author_id`;
   const config = {
     headers: { Authorization: `Bearer ${token}` },
   };
