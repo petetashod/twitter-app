@@ -8,35 +8,25 @@ import TweetCard from "./TweetCard.jsx";
 const favTwitterUsers = [
   {
     id: "342601720",
-    name: "Team LeBron 👑",
-    username: "LeBronJames",
   },
   {
     id: "27195114",
-    name: "Drizzy",
-    username: "Drake",
   },
   {
     id: "776968879",
-    name: "Ohio State Buckeyes",
-    username: "Buckeyes",
   },
   {
     id: "750751206427860992",
-    name: "Marvel Studios",
-    username: "MarvelStudios",
   },
   {
     id: "22258315",
-    name: "GameStop",
-    username: "GameStop",
   },
 ];
 // pass the user id into the https request for the back end
 
 function FavTweets() {
   const [id, setId] = useState([]);
-
+  const [imageUrl, setImageUrl] = useState("");
   const button = (e) => {
     const index = Math.floor(Math.random() * favTwitterUsers.length);
     const id = favTwitterUsers[index].id;
@@ -45,15 +35,15 @@ function FavTweets() {
     let favTweetInfo = async () => {
       let response = await axios.get(url);
       let tweetInformation = response.data.data;
-      //console.log(tweetInformation);
+      let tweetUsersInfo = response.data.includes.users.profile_image_url;
+      setImageUrl(tweetUsersInfo);
       setId(tweetInformation);
     };
     favTweetInfo();
-
-    // use get request to get tweet information
   };
-  // const idArray = [id];
-  // console.log(idArray);
+
+  //
+
   return (
     <>
       <div>
@@ -77,10 +67,9 @@ function FavTweets() {
         {id.map((tweet, index) => (
           <TweetCard
             key={index}
-            // tweet={tweet.id}
+            imageUrl={imageUrl}
+            userName={tweet.username}
             tweetText={tweet.text}
-            profile_id={tweet.profile_image_url}
-            userName={tweet.user_name}
             // figure out how to get the user's name and image from twitter api
           />
         ))}

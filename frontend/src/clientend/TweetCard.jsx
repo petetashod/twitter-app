@@ -1,7 +1,7 @@
 /** @format */
 import "/src/App.css";
 
-function TweetCard({ tweet, tweetText, profile_id, user_name }) {
+function TweetCard({ tweet, tweetText, profile_id, user_name, imageUrl }) {
   return (
     <>
       <div className="row">
@@ -12,7 +12,8 @@ function TweetCard({ tweet, tweetText, profile_id, user_name }) {
               <div className="panel-heading">
                 <h3 className="panel-title">
                   <i className="fa fa-twitter-square" aria-hidden="true"></i>
-                  {tweet} {profile_id} {user_name}
+                  <img src={imageUrl} />
+                  {tweet} {user_name}
                 </h3>
               </div>
               <div className="panel-body">{tweetText}</div>
