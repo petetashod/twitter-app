@@ -1,7 +1,7 @@
 /** @format */
 import "/src/App.css";
 
-function TweetCard({ tweet, tweetText, profile_id, user_name, imageUrl }) {
+function TweetCard({ tweet, tweetText, user_name, imageUrl }) {
   return (
     <>
       <div className="row">

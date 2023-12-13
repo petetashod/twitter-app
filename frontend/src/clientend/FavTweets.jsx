@@ -27,6 +27,7 @@ const favTwitterUsers = [
 function FavTweets() {
   const [id, setId] = useState([]);
   const [imageUrl, setImageUrl] = useState("");
+  const [userName, setUserName] = useState("");
   const button = (e) => {
     const index = Math.floor(Math.random() * favTwitterUsers.length);
     const id = favTwitterUsers[index].id;
@@ -35,14 +36,16 @@ function FavTweets() {
     let favTweetInfo = async () => {
       let response = await axios.get(url);
       let tweetInformation = response.data.data;
-      let tweetUsersInfo = response.data.includes.users.profile_image_url;
-      setImageUrl(tweetUsersInfo);
+      let tweetUsersImage = response.data.includes.users[0].profile_image_url;
+      let tweetUserName = response.data.includes.users[0].username;
+      setUserName(tweetUserName);
+      setImageUrl(tweetUsersImage);
       setId(tweetInformation);
     };
     favTweetInfo();
   };
 
-  //
+  // create a new .map on the image url inside the tweet card
 
   return (
     <>
@@ -68,9 +71,8 @@ function FavTweets() {
           <TweetCard
             key={index}
             imageUrl={imageUrl}
-            userName={tweet.username}
+            userName={userName}
             tweetText={tweet.text}
-            // figure out how to get the user's name and image from twitter api
           />
         ))}
       </div>
