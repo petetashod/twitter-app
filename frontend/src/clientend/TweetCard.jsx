@@ -1,7 +1,7 @@
 /** @format */
 import "/src/App.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRetweet } from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faRetweet } from "@fortawesome/free-solid-svg-icons";
 function TweetCard({ tweet, userName, imageUrl }) {
   return (
     <>
@@ -28,6 +28,12 @@ function TweetCard({ tweet, userName, imageUrl }) {
                     </span>
                     <span className="display">
                       {tweet.public_metrics.retweet_count}
+                    </span>
+                    <span>
+                      <FontAwesomeIcon icon={faHeart} />
+                    </span>
+                    <span className="display">
+                      {tweet.public_metrics.like_count}
                     </span>
                   </div>
                 </footer>
