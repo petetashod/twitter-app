@@ -56,12 +56,8 @@ function FavTweets() {
           <br />
           Lebron James, Drake, Ohio State Football, Marvel Studios, GameStop
         </p>
-        <form action="" method="GET" className=" favForm">
-          <button
-            type="submit"
-            className="btn btn-dark favButton"
-            onClick={button}
-          >
+        <form action="" method="GET" className=" formAll">
+          <button type="submit" className="btn btn-dark" onClick={button}>
             random tweets
           </button>
         </form>
@@ -72,7 +68,7 @@ function FavTweets() {
             key={index}
             imageUrl={imageUrl}
             userName={userName}
-            tweetText={tweet.text}
+            tweet={tweet}
           />
         ))}
       </div>

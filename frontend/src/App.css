@@ -7,7 +7,7 @@ body {
 }
 
 p {
-  margin-top: 60 x;
+  margin-top: 60px;
   text-align: center;
   font-size: large;
 }
@@ -17,26 +17,33 @@ h1 {
   text-align: center;
 }
 
-.searchDiv {
-  margin-top: 100px;
+.formAll {
+  margin-top: 50px;
   display: flex;
   justify-content: center;
 }
 
-.form {
-  max-width: 700px;
-  min-width: 500px;
+.tweetInfo {
+  margin: 10px;
 }
 
-.favForm {
-  margin-top: 70px;
+.userNameDisplay {
+  margin: 15px;
+}
+.display {
+  margin-left: 10px;
+}
+
+input {
+  width: 800px;
+}
+
+.searchButton {
+  margin-top: 10px;
+}
+
+#tweetCard {
   display: flex;
   justify-content: center;
-}
-
-ul {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 750px;
+  margin: 20px 10px;
 }
