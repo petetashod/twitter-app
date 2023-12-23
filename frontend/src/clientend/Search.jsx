@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import App from "/src/App";
 import NavBar from "./NavBar";
 import "/src/App.css";
+import SearchTweetCard from "./SearchTweetCard";
 function Search() {
   const [search, setSearch] = useState("");
 
