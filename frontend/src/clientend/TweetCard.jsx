@@ -29,7 +29,7 @@ function TweetCard({ tweet, userName, imageUrl }) {
                     <span className="display">
                       {tweet.public_metrics.retweet_count}
                     </span>
-                    <span>
+                    <span className="display">
                       <FontAwesomeIcon icon={faHeart} />
                     </span>
                     <span className="display">
