@@ -25,7 +25,21 @@ app.get(`/api/tweets`, (req, res) => {
     .get(favTweetUrl, config)
     .then((response) => {
       res.send(response.data);
-      // try this response to see if this is how you would grab the data res.(response.includes.users)
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
+app.get(`/api/Search`, (req, res) => {
+  const searchUrl = `https://api.twitter.com/2/tweets/search/recent?query=${req.query.searchName}&tweet.fields=public_metrics,author_id&user.fields=profile_image_url&expansions=author_id`;
+  const config = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
+  axios
+    .get(searchUrl, config)
+    .then((response) => {
+      res.send(response.data);
     })
     .catch((error) => {
       console.log(error);
