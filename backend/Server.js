@@ -12,10 +12,6 @@ app.use(
   express.static(path.join(__dirname, "../frontend/dist/assets"))
 );
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
-});
-
 app.get(`/api/tweets`, (req, res) => {
   const favTweetUrl = `https://api.twitter.com/2/users/${req.query.user_id}/tweets?tweet.fields=public_metrics,author_id&user.fields=profile_image_url&expansions=author_id`;
   const config = {
@@ -44,6 +40,10 @@ app.get(`/api/Search`, (req, res) => {
     .catch((error) => {
       console.log(error);
     });
+});
+
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
 });
 
 // const port = process.env.PORT || 3000 will be needed when deploying app
