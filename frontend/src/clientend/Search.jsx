@@ -4,35 +4,58 @@ import App from "/src/App";
 import axios from "axios";
 import "/src/App.css";
 import SearchTweetCard from "./SearchTweetCard";
+import TweetCard from "./TweetCard";
 
 function Search() {
+  // user information
   const [searchName, setSearchName] = useState("");
   const [searchUserName, setSearchUserName] = useState("");
   const [searchImage, setSearchImage] = useState("");
   const [searchData, setSearchData] = useState([]);
+  //tweet information
+  const [searchTweet, setSearchTweet] = useState("");
+  const [searchUserNameTweet, setSearchUserNameTweet] = useState("");
+  const [searchImageTweet, setSearchImageTweet] = useState("");
+  const [searchDataTweet, setSearchDataTweet] = useState([]);
+
+  const SearchUserUrl = `http://localhost:3000/api/Search?search_name${searchName}}`;
+  const SearchTweetUrl = `http://localhost:3000/api/Search?search_tweet=${searchTweet}`;
 
   const handleChangeInput = (e) => {
     e.preventDefault();
     setSearchName(e.target.value);
+    setSearchTweet(e.target.value);
+  };
+
+  let tweetInfo = async () => {
+    let response = await axios.get(SearchUserUrl);
+    let searchUserTweetInfo = response.data.data;
+    let searchUserImage = response.data.includes.users[0].profile_image_url;
+    let searchUserName = response.date.includes.users[0].user_name;
+
+    setSearchData(searchUserTweetInfo);
+    setSearchUserName(searchUserName);
+    setSearchImage(searchUserImage);
+  };
+
+  let SearchUserName = async () => {
+    let response = await axios.get(SearchTweetUrl);
+    let tweetInformation = response.data.data;
+    let tweetUsersImage = response.data.includes.users[0].profile_image_url;
+    let tweetUserName = response.data.includes.users[0].username;
+    setSearchUserNameTweet(tweetUserName);
+    setSearchImageTweet(tweetUsersImage);
+    setSearchDataTweet(tweetInformation);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const url = `http://localhost:3000/api/Search?search_name=${searchName}`;
-    let getSearchInfo = async () => {
-      let response = await axios.get(url);
-      let searchTweetInfo = response.data.data;
-      let searchUserImage = response.data.includes.users[0].profile_image_url;
-      let searchUserName = response.date.includes.users[0].user_name;
-      setSearchData(searchTweetInfo);
-      setSearchImage(searchUserImage);
-      setSearchUserName(searchUserName);
-    };
-    getSearchInfo();
+    SearchUserName();
+    tweetInfo();
   };
 
   return (
-    <>
+    <div>
       <div>
         <h1>Search</h1>
         <p>Please enter a name!!!</p>
@@ -78,7 +101,17 @@ function Search() {
           />
         ))}
       </div>
-    </>
+      <div>
+        {searchDataTweet.map((searchTweet, index) => (
+          <TweetCard
+            key={index}
+            searchUserNameTweet={searchUserNameTweet}
+            searchImageTweet={searchImageTweet}
+            tweet={searchTweet}
+          />
+        ))}
+      </div>
+    </div>
   );
 }
 
