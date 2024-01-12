@@ -4,6 +4,7 @@ import NavBar from "./NavBar";
 import "/src/App.css";
 import axios from "axios";
 import TweetCard from "./TweetCard.jsx";
+import Search from "./Search.jsx";
 
 const favTwitterUsers = [
   {

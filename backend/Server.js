@@ -28,7 +28,7 @@ app.get(`/api/tweets`, (req, res) => {
 });
 
 app.get(`/api/Search`, (req, res) => {
-  const searchUrl = `https://api.twitter.com/2/tweets/search/recent?query=${req.query.searchName}&tweet.fields=public_metrics,author_id&user.fields=profile_image_url&expansions=author_id`;
+  const searchUrl = `https://api.twitter.com/2/tweets/search/recent?query=${req.query.search_name}&tweet.fields=public_metrics,author_id&user.fields=profile_image_url&expansions=author_id`;
   const config = {
     headers: { Authorization: `Bearer ${token}` },
   };
