@@ -41,7 +41,22 @@ app.get(`/api/Search`, (req, res) => {
       console.log(error);
     });
 });
-
+app.get(`/api/SearchUserTweet`, (req, res) => {
+  console.log(req.query.user_name, "query for lebron james");
+  const favTweetUrl = `https://api.twitter.com/2/users/${req.query.user_id}/tweets?tweet.fields=public_metrics,author_id&user.fields=profile_image_url&expansions=author_id`;
+  const config = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
+  axios
+    .get(favTweetUrl, config)
+    .then((response) => {
+      console.log(response.data);
+      res.send(response.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
 app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
 });

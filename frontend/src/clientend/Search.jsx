@@ -5,7 +5,7 @@ import axios from "axios";
 import "/src/App.css";
 import SearchTweetCard from "./SearchTweetCard";
 
-function Search(props) {
+function Search() {
   // user information
   const [isUserSearch, setIsUserSearch] = useState();
   const [searchName, setSearchName] = useState("");
@@ -28,8 +28,9 @@ function Search(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(isUserSearch);
-    if (isUserSearch === true) {
-      searchUserUrl = props.url;
+    if (isUserSearch === "true") {
+      searchUserUrl = `http://localhost:3000/api/SearchUserTweet?user_id=${searchName}`;
+      // check and see if there is a different endpoint that allows you to search by username??
     }
     console.log("Search URL:", searchUserUrl);
     let tweetInfo = async () => {
