@@ -30,7 +30,8 @@ function Search() {
     console.log(isUserSearch);
     if (isUserSearch === "true") {
       searchUserUrl = `http://localhost:3000/api/SearchUserTweet?user_id=${searchName}`;
-      // check and see if there is a different endpoint that allows you to search by username??
+      // look for search endpoint might also have to use a different endpoint,
+      // double check if you are suppose to show tweets
     }
     console.log("Search URL:", searchUserUrl);
     let tweetInfo = async () => {
