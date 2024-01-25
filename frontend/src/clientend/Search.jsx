@@ -27,13 +27,11 @@ function Search() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(isUserSearch);
+
     if (isUserSearch === "true") {
       searchUserUrl = `http://localhost:3000/api/SearchUserTweet?user_id=${searchName}`;
-      // look for search endpoint might also have to use a different endpoint,
-      // double check if you are suppose to show tweets
     }
-    console.log("Search URL:", searchUserUrl);
+
     let tweetInfo = async () => {
       let response = await axios.get(searchUserUrl);
       let searchUserTweetInfo = response.data.data;

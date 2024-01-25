@@ -41,9 +41,15 @@ app.get(`/api/Search`, (req, res) => {
       console.log(error);
     });
 });
+// make a request to grab id then pass into server then pass information into frontend
+// should be able to copy and paste information below....how do I grab information from
+// a request on the backend....should be able to make another axios request on the backend
 app.get(`/api/SearchUserTweet`, (req, res) => {
-  console.log(req.query.user_name, "query for lebron james");
-  const favTweetUrl = `https://api.twitter.com/2/users/${req.query.user_id}/tweets?tweet.fields=public_metrics,author_id&user.fields=profile_image_url&expansions=author_id`;
+  const favTweetUrl = `https://api.twitter.com/2/users/by/username/${req.query.user_id}`;
+  let userName = req.query.user_id;
+  console.log(userName);
+  let favSearchUrl = `https://api.twitter.com/2/users/${userName}/tweets?tweet.fields=public_metrics,author_id&user.fields=profile_image_url&expansions=author_id`;
+
   const config = {
     headers: { Authorization: `Bearer ${token}` },
   };
@@ -56,6 +62,18 @@ app.get(`/api/SearchUserTweet`, (req, res) => {
     .catch((error) => {
       console.log(error);
     });
+
+  axios
+    .get(favSearchUrl, config)
+
+    .then((response) => {
+      console.log(response.data);
+      res.send(response.data);
+    });
+
+  //  .catch((error) => {
+  //     console.log(error);
+  //   });
 });
 app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
