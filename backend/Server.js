@@ -1,6 +1,8 @@
 /** @format */
 
+const { faV } = require("@fortawesome/free-solid-svg-icons");
 const axios = require("axios");
+const { response } = require("express");
 const express = require("express");
 const path = require("path");
 require("dotenv").config();
@@ -44,36 +46,20 @@ app.get(`/api/Search`, (req, res) => {
 // make a request to grab id then pass into server then pass information into frontend
 // should be able to copy and paste information below....how do I grab information from
 // a request on the backend....should be able to make another axios request on the backend
-app.get(`/api/SearchUserTweet`, (req, res) => {
+app.get(`/api/SearchUserTweet`, async (req, res) => {
   const favTweetUrl = `https://api.twitter.com/2/users/by/username/${req.query.user_id}`;
-  let userName = req.query.user_id;
-  console.log(userName);
-  let favSearchUrl = `https://api.twitter.com/2/users/${userName}/tweets?tweet.fields=public_metrics,author_id&user.fields=profile_image_url&expansions=author_id`;
 
   const config = {
     headers: { Authorization: `Bearer ${token}` },
   };
-  axios
-    .get(favTweetUrl, config)
-    .then((response) => {
-      console.log(response.data);
-      res.send(response.data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
 
-  axios
-    .get(favSearchUrl, config)
-
-    .then((response) => {
-      console.log(response.data);
-      res.send(response.data);
-    });
-
-  //  .catch((error) => {
-  //     console.log(error);
-  //   });
+  const response = await axios.get(favTweetUrl, config);
+  console.log(response.data.data.id);
+  let favSearchUrl = `https://api.twitter.com/2/users/${response.data.data.id}/tweets?tweet.fields=public_metrics,author_id&user.fields=profile_image_url&expansions=author_id`;
+  await axios.get(favSearchUrl, config);
+  console.log(tweets.data);
+  res.send(tweets.data);
+  // try using try catch sync await
 });
 app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));

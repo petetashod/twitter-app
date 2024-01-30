@@ -37,6 +37,7 @@ function FavTweets() {
     let favTweetInfo = async () => {
       let response = await axios.get(url);
       let tweetInformation = response.data.data;
+      //console.log(tweetInformation);
       let tweetUsersImage = response.data.includes.users[0].profile_image_url;
       let tweetUserName = response.data.includes.users[0].username;
       setUserName(tweetUserName);
