@@ -56,10 +56,9 @@ app.get(`/api/SearchUserTweet`, async (req, res) => {
   const response = await axios.get(favTweetUrl, config);
   console.log(response.data.data.id);
   let favSearchUrl = `https://api.twitter.com/2/users/${response.data.data.id}/tweets?tweet.fields=public_metrics,author_id&user.fields=profile_image_url&expansions=author_id`;
-  await axios.get(favSearchUrl, config);
-  console.log(tweets.data);
+  const tweets = await axios.get(favSearchUrl, config);
+
   res.send(tweets.data);
-  // try using try catch sync await
 });
 app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
