@@ -1,6 +1,5 @@
 /** @format */
 
-const { faV } = require("@fortawesome/free-solid-svg-icons");
 const axios = require("axios");
 const { response } = require("express");
 const express = require("express");
@@ -43,9 +42,7 @@ app.get(`/api/Search`, (req, res) => {
       console.log(error);
     });
 });
-// make a request to grab id then pass into server then pass information into frontend
-// should be able to copy and paste information below....how do I grab information from
-// a request on the backend....should be able to make another axios request on the backend
+
 app.get(`/api/SearchUserTweet`, async (req, res) => {
   const favTweetUrl = `https://api.twitter.com/2/users/by/username/${req.query.user_id}`;
 
