@@ -47,7 +47,8 @@ input {
   justify-content: center;
   margin: 20px 10px;
 }
-
-#inputGroupSelect01 {
-  margin-right: 200px;
+#tweetCardSearch {
+  display: flex;
+  justify-content: center;
+  margin: 40px 10px;
 }

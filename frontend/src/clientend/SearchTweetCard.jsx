@@ -9,7 +9,7 @@ const SearchTweetCard = ({ searchImage, userName, tweet }) => {
   return (
     <div className="row">
       <div className="col-md-4"></div>
-      <div className="container">
+      <div className="container tweetSearchCard" id="tweetCardSearch">
         <div className="col-md-4">
           <div className="panel panel-danger">
             <div className="panel-heading">
