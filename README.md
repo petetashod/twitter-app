@@ -12,7 +12,7 @@ _Written entirely in pure Javascript, HTML, CSS React_
 
 I have always enjoyed being able to post short comments on topics and pictures. So I decided to create a twitter clone.
 
-I had a few issues with reading the API documentation from twitter and getting the twitter account information to display. I all I enjoyed the experience and learned a lot.
+I had a few issues with reading the API documentation from twitter and getting the twitter account information to display. In all I enjoyed the experience and learned a lot.
 
 ## Author
 
