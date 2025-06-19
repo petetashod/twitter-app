@@ -6,7 +6,7 @@ const express = require("express");
 const path = require("path");
 require("dotenv").config();
 const token = process.env.TOKEN;
-// const app = express();
+const app = express();
 
 app.use(
   "/assets",
