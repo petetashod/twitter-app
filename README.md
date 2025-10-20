@@ -7,7 +7,9 @@
 _Written entirely in pure Javascript, HTML, CSS React_
 
 <br>
+
 <image src="Screenshot 2025-10-19 at 9.29.32 PM.png">
+
 ## Summary
 
 I have always enjoyed being able to post short comments on topics and pictures. So I decided to create a twitter clone.
